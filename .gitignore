@@ -1,0 +1,6 @@
+istates/*
+seg_logs/*
+tests/*
+traj_segs/*
+west.h5
+west.log
