@@ -14,24 +14,38 @@
 The only file you'll need to download is docker/Dockerfile
 
 First, ensure that the docker daemon is running. It can be started with:
-`sudo dockerd`
+```
+sudo dockerd
+```
 
 From the `docker/` directory, build the docker image:
-`sudo docker build -t westpa-openmm ./`
+```
+sudo docker build -t westpa-openmm ./
+```
 
 Docker will build an image and install all of the necessary components. 
 
 To start an interactive bash session in the image created:
-`sudo docker run -it westpa-openmm /bin/bash` 
+```
+sudo docker run -it westpa-openmm /bin/bash
+```
 
 To set the environment variable $WEST_ROOT, run the following from the westpa/ directory:
-`source westpa.sh`
+```
+source westpa.sh
+```
 
 Now enter the simulation directory:
-`cd lib/examples/WESTPA_OpenMM_Docker/`
+```
+cd lib/examples/WESTPA_OpenMM_Docker/
+```
 
 Initialize the simulation:
-`./init.sh`
+```
+./init.sh
+```
 
 Run the simulation:
-`./run.sh`
+```
+./run.sh
+```
