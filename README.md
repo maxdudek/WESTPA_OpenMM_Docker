@@ -30,15 +30,7 @@ To start an interactive bash session in the image created:
 sudo docker run -it westpa-openmm /bin/bash
 ```
 
-To set the environment variable $WEST_ROOT, run the following from the westpa/ directory:
-```
-source westpa.sh
-```
-
-Now enter the simulation directory:
-```
-cd lib/examples/WESTPA_OpenMM_Docker/
-```
+The image will start in the simulation directory.
 
 Initialize the simulation:
 ```

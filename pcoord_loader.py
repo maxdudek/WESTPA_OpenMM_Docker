@@ -53,7 +53,9 @@ def pcoord_loader(fieldname, pcoord_return_filename, segment, single_point=False
         print(coords2)
 
         # Calclulate the distance between Na and Cl
-        dist.append(getDistance(coords1, coords2))
+        # MDTraj uses nm, but WESTPA uses angstroms, so we multiply by 10 to correct
+        dist.append(10*getDistance(coords1, coords2))
+        #dist.append(10) # Testing
 
     dist = numpy.asarray(dist, dtype = numpy.float32)
 

@@ -23,5 +23,16 @@ RUN mv WESTPA_OpenMM_Docker /home/test/westpa/lib/examples
 EXPOSE 8888
 
 WORKDIR /home/test/westpa
+
+# Set WESTPA environment variables
 RUN /home/test/westpa/setup.sh
-#WORKDIR /home/test/westpa/lib/examples/WESTPA_Workshop_2018_Saglam
+ARG _WEST_ROOT=/home/test/westpa
+ENV WEST_ROOT=$_WEST_ROOT
+ARG _WEST_BIN=/home/test/westpa/bin
+ENV WEST_BIN=$_WEST_BIN
+ARG _WEST_PYTHON=/opt/conda/bin/python2.7
+ENV WEST_PYTHON=$_WEST_PYTHON
+ARG _PATH=$WEST_BIN:$PATH
+ENV PATH=$_PATH
+
+WORKDIR /home/test/westpa/lib/examples/WESTPA_OpenMM_Docker
