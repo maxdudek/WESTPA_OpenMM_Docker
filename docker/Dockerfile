@@ -13,7 +13,15 @@ RUN apt-get install -y g++ --fix-missing
 RUN pip install mdtraj
 # Get OpenMM
 RUN conda install -c omnia openmm
+# Ensure than numpy and its components are up to date
+RUN conda install libgfortran==1
+RUN pip install --upgrade numpy
+# Install ParmEd - used to create restart files with OpenMM
+RUN git clone https://github.com/ParmEd/ParmEd.git
+WORKDIR /home/test/ParmEd
+RUN python setup.py install
 # Install WESTPA 
+WORKDIR /home/test
 RUN git clone https://github.com/westpa/westpa.git
 # Install vim
 RUN apt-get install -y vim

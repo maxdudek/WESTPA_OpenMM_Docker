@@ -7,6 +7,7 @@ from mdtraj.reporters import NetCDFReporter
 import os
 
 # Load the topology and coordinate files into OpenMM using AMBER files
+print("Loading files and creating system...")
 prmtop = AmberPrmtopFile('nacl.parm7')
 inpcrd = AmberInpcrdFile('nacl.rst')
 
@@ -21,9 +22,11 @@ simulation.context.setPositions(inpcrd.positions)
 if inpcrd.boxVectors is not None:
     simulation.context.setPeriodicBoxVectors(*inpcrd.boxVectors)
 
+print("Minimizing system...")
 # Minimize energy
 simulation.minimizeEnergy()
 
+print("Preparing output files...")
 # Create a RestartReporter which will output the restart file
 simulation.reporters.append(RestartReporter('nacl_eq.rst', 1, prmtop.topology.getNumAtoms()))
 
@@ -36,3 +39,4 @@ simulation.step(1)
 
 # Rename the restart file, because the parmEd reporter adds an extension
 os.rename('nacl_eq.rst.1', 'nacl_eq.rst')
+print("Done")

@@ -48,9 +48,10 @@ def pcoord_loader(fieldname, pcoord_return_filename, segment, single_point=False
         coords1 = frame[0] # Coordinates of first atom
         coords2 = frame[1] # Coordinates of second atom
 
-        print("Na and Cl coords:")
-        print(coords1)
-        print(coords2)
+        # For debugging
+        #print("Na and Cl coords:")
+        #print(coords1)
+        #print(coords2)
 
         # Calclulate the distance between Na and Cl
         # MDTraj uses nm, but WESTPA uses angstroms, so we multiply by 10 to correct
@@ -82,9 +83,9 @@ def pcoord_loader(fieldname, pcoord_return_filename, segment, single_point=False
     if dist.shape != expected_shape:
         raise ValueError('progress coordinate data has incorrect shape {!r} [expected {!r}]'.format(dist.shape,
                                                                                                     expected_shape))
-
-    print("pcoord:")
-    print(dist)
+    # For debugging
+    #print("pcoord:")
+    #print(dist)
 
     # Send the calculated dist array to the segment object
     segment.pcoord = dist

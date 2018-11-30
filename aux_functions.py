@@ -27,5 +27,8 @@ def coord_loader(fieldname, coord_filename, segment, single_point=False):
     # turn list into numpy array
     coords = numpy.asarray(coord_data)
 
+    # Convert nanometers to angstroms
+    coords = numpy.multiply(coords, 10)
+
     # Save to hdf5
     segment.data[fieldname] = coords[...]

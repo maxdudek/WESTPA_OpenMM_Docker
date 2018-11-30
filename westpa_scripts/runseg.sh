@@ -71,7 +71,7 @@ python $WEST_SIM_ROOT/runDynamics.py nacl.parm7 parent.rst seg.rst seg.nc seg.lo
 # to save the coordinates to the h5 file. The file will be passed in to the function as
 # the 'coord_filename' parameter. The function is specified
 # as the coord loading function in west.cfg under executable/datasets
-# cp seg.nc $WEST_COORD_RETURN
+cp seg.nc $WEST_COORD_RETURN
 
 # Calculate the progress coordinate
 # The progress coordinate is calculated and returned by the function pcoord_loader (in pcoord_loader.py)
