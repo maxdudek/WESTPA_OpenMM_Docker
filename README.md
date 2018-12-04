@@ -74,12 +74,12 @@ And run the simulation:
 
 ## Saving the container to a new image
 
-To save a container as a new image, you will need to know the ID of the container. From **outside the docker bash session** (tmux is useful here) use  `docker ps` to get a readout of all running containers. 
+To save a container as a new image, you will need to know the ID of the container. From **outside the docker bash session** (tmux is useful here) use  `sudo docker ps` to get a readout of all running containers. 
 
 Then commit a new image with a specified name:
 
 ```
-docker commit <container_id> new_image_name
+sudo docker commit <container_id> new_image_name
 ```
 
 You will then be able to run a container with this new image just like before:
